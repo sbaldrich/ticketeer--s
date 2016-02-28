@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: tickets-service
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+
+server:
+  port: 3333
+
+microservice:
+  accounts:
+    location: http://ACCOUNTS-SERVICE

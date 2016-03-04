@@ -1,6 +1,7 @@
 package com.ticketeer.microservices.accounts.controller;
 
-import com.ticketeer.common.request.DebitRequest;
+import com.ticketeer.common.rest.request.DebitRequest;
+import com.ticketeer.common.rest.response.DebitResponse;
 import com.ticketeer.microservices.accounts.model.User;
 import com.ticketeer.microservices.accounts.repository.UserRepository;
 import com.ticketeer.microservices.accounts.service.AccountService;
@@ -32,9 +33,9 @@ public class RestController{
 
     @RequestMapping(value = "/debit", consumes = MediaType.APPLICATION_JSON)
     public @ResponseBody
-    ResponseEntity getUser(@RequestBody DebitRequest request){
+    ResponseEntity debit(@RequestBody DebitRequest request){
         User user = accountService.debit(request.getUser(), request.getAmount());
-        return user != null ? ResponseEntity.ok(user) : ResponseEntity.status(HttpStatus.NOT_MODIFIED).body(null);
+        return user != null ? ResponseEntity.ok(DebitResponse.ok(user)) : ResponseEntity.status(HttpStatus.NOT_MODIFIED).body(DebitResponse.idiot());
     }
 
 }

@@ -1,9 +1,8 @@
-package com.ticketeer.common.request;
+package com.ticketeer.common.rest.request;
 
-public class Payment{
+public class DebitRequest {
     private Long user;
     private int amount;
-    private String reference;
 
     public Long getUser() {
         return user;
@@ -19,13 +18,5 @@ public class Payment{
 
     public void setAmount(int amount) {
         this.amount = amount;
-    }
-
-    public String getReference() {
-        return reference;
-    }
-
-    public void setReference(String reference) {
-        this.reference = reference;
     }
 }

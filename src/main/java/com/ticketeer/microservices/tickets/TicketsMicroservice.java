@@ -2,7 +2,7 @@ package com.ticketeer.microservices.tickets;
 
 import com.ticketeer.microservices.tickets.model.Event;
 import com.ticketeer.microservices.tickets.repository.EventRepository;
-import com.ticketeer.microservices.tickets.service.AccountsServiceClient;
+import com.ticketeer.microservices.tickets.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
@@ -18,7 +18,7 @@ import java.util.Random;
 public class TicketsMicroservice implements CommandLineRunner{
 
     @Autowired
-    private AccountsServiceClient accounts;
+    private PaymentService accounts;
 
     public static void main(String[] args) {
         System.setProperty("spring.config.name", "tickets-service");
@@ -27,8 +27,8 @@ public class TicketsMicroservice implements CommandLineRunner{
 
     @Bean
     @Value("${microservice.accounts.location}")
-    public AccountsServiceClient accountsServiceClient(String location){
-        return new AccountsServiceClient(location);
+    public PaymentService paymentService(String location){
+        return new PaymentService(location);
     }
 
 

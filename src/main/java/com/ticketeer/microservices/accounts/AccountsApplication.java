@@ -10,8 +10,8 @@ import org.springframework.boot.orm.jpa.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@EntityScan("com.ticketeer.services.accounts")
-@EnableJpaRepositories("com.ticketeer.services.accounts")
+@EntityScan("com.ticketeer.microservices.accounts")
+@EnableJpaRepositories("com.ticketeer.microservices.accounts")
 public class AccountsApplication implements CommandLineRunner{
     public static void main(String[] args){
         SpringApplication.run(AccountsApplication.class, args);
